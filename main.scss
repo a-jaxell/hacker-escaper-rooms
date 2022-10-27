@@ -1,3 +1,13 @@
-h1{
-    background: green;
+@mixin primary-on-white{
+    background: #E3170A;
+    color: white;
+}
+@mixin secondary-on-white{
+    background: #8ACFE5;
+    color: black;
+}
+@mixin primary-on-dark{
+    background: transparent;
+    border:1px solid #8ACFE5;
+    color: #8ACFE5;
 }
