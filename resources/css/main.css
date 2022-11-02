@@ -21,6 +21,13 @@ button {
   display: block;
 }
 
+.button__secondary--on-mobile {
+  color: #36769D;
+  text-decoration: underline;
+  background-color: transparent;
+  display: block;
+}
+
 .button__primary--on-dark {
   background: transparent;
   border: 1px solid #8ACFE5;
@@ -128,8 +135,29 @@ header nav {
 .popular .popular__card button {
   margin: 1rem;
 }
+.popular button {
+  margin: 2em auto;
+}
 
 .about-us {
   background: #011827;
   color: white;
+  padding: 3rem 1rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+}
+.about-us button {
+  display: block;
+  margin: 2rem auto;
+}
+
+.browse-challenges div h2, .book-on-site div h2 {
+  margin: 2rem 2rem;
+}
+.browse-challenges div p, .book-on-site div p {
+  margin: 1rem 2rem;
+}
+.browse-challenges div button, .book-on-site div button {
+  margin: 2rem 2rem;
 }
