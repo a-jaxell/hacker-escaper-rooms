@@ -181,5 +181,19 @@ header{
    @include book-and-browse-box;
 }
 footer{
-    
+    padding: 2rem 0 2.5rem 0;
+    @include section-dark;
+    h4{
+        margin: 1rem 0 0.5rem 1em;
+    }
+    p{
+        margin-left: 1rem;
+        margin-bottom: 2rem;
+    }
+    a{
+        margin-left: 1rem;
+        display: block;
+        text-decoration: none;
+        color: white;
+    }
 }

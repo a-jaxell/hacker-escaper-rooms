@@ -161,3 +161,22 @@ header nav {
 .browse-challenges div button, .book-on-site div button {
   margin: 2rem 2rem;
 }
+
+footer {
+  padding: 2rem 0 2.5rem 0;
+  background: #011827;
+  color: white;
+}
+footer h4 {
+  margin: 1rem 0 0.5rem 1em;
+}
+footer p {
+  margin-left: 1rem;
+  margin-bottom: 2rem;
+}
+footer a {
+  margin-left: 1rem;
+  display: block;
+  text-decoration: none;
+  color: white;
+}
