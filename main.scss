@@ -22,6 +22,23 @@
     margin: 0;
 }
 
+button{
+    width: 10rem;
+    height: 2rem;
+    border: none;
+    border-radius: 4px;
+}
+.button__primary--on-white{
+    @include primary-on-white;
+}
+.button__secondary--on-white{
+    @include secondary-on-white;
+    display: block;
+}
+.button__primary--on-dark{
+    @include primary-on-dark;
+}
+
 body{
     font-family: 'Roboto', sans-serif;
     img{
@@ -84,14 +101,47 @@ header{
     }
 }
 
-
-button{
-    width: 10rem;
-    height: 2rem;
-    border: none;
-    border-radius: 4px;
+.popular{
+    h2{
+        font-weight: 400;
+        margin: 0 auto;
+    }
+    .popular__card__container{
+        display: flex;
+        align-content: space-between;
+        overflow:scroll;
+        padding: 30px 15px;
+    }
+    .popular__card{
+        min-width: 80vw;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0.25);
+        margin: 0 15px;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+        .popular__card__room-title{
+            font-weight: normal;
+            font-size: 1.5em;
+            margin-left: 1rem;
+            margin-top: 0.5rem;
+        }
+        .popular__card__room-rating{
+            color: #E3170A;
+            margin-left: 1rem;
+            font-size: 0.75rem;
+        }
+        .popular__card__room-description{
+            margin: 1rem;
+            font-size: 0.95rem;
+        }
+        button{
+            margin: 1rem;
+        }
+    }
 }
-.button__secondary--on-white{
-    @include secondary-on-white;
-    display: block;
+.about-us{
+    @include section-dark;
+
 }

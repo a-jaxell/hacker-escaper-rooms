@@ -3,6 +3,30 @@
   margin: 0;
 }
 
+button {
+  width: 10rem;
+  height: 2rem;
+  border: none;
+  border-radius: 4px;
+}
+
+.button__primary--on-white {
+  background: #E3170A;
+  color: white;
+}
+
+.button__secondary--on-white {
+  background: #8ACFE5;
+  color: black;
+  display: block;
+}
+
+.button__primary--on-dark {
+  background: transparent;
+  border: 1px solid #8ACFE5;
+  color: #8ACFE5;
+}
+
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -66,15 +90,46 @@ header nav {
   font-size: 1em;
 }
 
-button {
-  width: 10rem;
-  height: 2rem;
-  border: none;
-  border-radius: 4px;
+.popular h2 {
+  font-weight: 400;
+  margin: 0 auto;
+}
+.popular .popular__card__container {
+  display: flex;
+  align-content: space-between;
+  overflow: scroll;
+  padding: 30px 15px;
+}
+.popular .popular__card {
+  min-width: 80vw;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+  margin: 0 15px;
+  overflow: hidden;
+}
+.popular .popular__card img {
+  width: 100%;
+}
+.popular .popular__card .popular__card__room-title {
+  font-weight: normal;
+  font-size: 1.5em;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+}
+.popular .popular__card .popular__card__room-rating {
+  color: #E3170A;
+  margin-left: 1rem;
+  font-size: 0.75rem;
+}
+.popular .popular__card .popular__card__room-description {
+  margin: 1rem;
+  font-size: 0.95rem;
+}
+.popular .popular__card button {
+  margin: 1rem;
 }
 
-.button__secondary--on-white {
-  background: #8ACFE5;
-  color: black;
-  display: block;
+.about-us {
+  background: #011827;
+  color: white;
 }
