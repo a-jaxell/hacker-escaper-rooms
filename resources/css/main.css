@@ -4,10 +4,12 @@
 }
 
 button {
-  width: 10rem;
-  height: 2rem;
+  width: 15rem;
+  height: 3rem;
   border: none;
   border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
 .button__primary--on-white {
@@ -63,19 +65,24 @@ header h1 {
 header nav {
   display: none;
 }
+header .mobile__burger-menu {
+  font-family: "FontAwesome";
+  content: "\f005";
+}
 
 #landing__container {
   display: flex;
   flex-direction: column;
 }
 #landing__container button {
-  margin: 2em auto;
+  margin: 2em auto 0 auto;
 }
 #landing__container .button__primary--on-white {
   margin: 0 auto;
   background-color: transparent;
   text-decoration: underline;
   color: #36769D;
+  font-size: 0.75em;
 }
 
 .review__container {
@@ -83,13 +90,11 @@ header nav {
 }
 .review__container .review__card {
   display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 0 1rem;
 }
 .review__container .review__card img {
-  max-width: 20%;
-  padding: 1rem;
+  max-width: 15%;
+  padding-right: 1em;
   align-self: flex-start;
 }
 .review__container .review__card p {
