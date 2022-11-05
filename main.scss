@@ -120,7 +120,7 @@ header{
     }
     header{
         h1{
-            font-size: 1.75em;
+            font-size: 2em;
             width: 100%;
             align-self: flex-end;
         }
@@ -128,7 +128,7 @@ header{
 }
 nav{
     @extend %section-dark;
-    padding-bottom: 1em;
+    padding: 1em 0;
     box-sizing: border-box;
     width: 100vw;
     ul{
@@ -136,7 +136,7 @@ nav{
         justify-content: center;
     }
     li{
-        margin: 0 3rem;
+        margin: 0 4rem;
         display: inline;
         font-weight: bold;
         font-size: 1.25rem;
@@ -150,17 +150,13 @@ nav{
 // Toggles nav bar depending on screen size
 @media only screen and (max-width: 768px) {
   nav{
-    ul{
         display: none;
-    }
   }
 }
 @media only screen and (min-width: 768px) {
     nav{
-        ul{
-            display: flex;
+            display: block;
         }
-      }
 }
 
 // Adjusts landing image fill on larger screens 
@@ -281,20 +277,38 @@ nav{
             width: 50%;
         }
     }
-    button {
-        margin: 2em auto;
+    .button__secondary--on-mobile{
+        margin-bottom: 2em;
+        margin-top: 0;
     }
 }
 @media only screen and (min-width:768px){
     .popular{
         h2{
-            font-size: 1.75rem;
+            font-size: 2rem;
             margin-bottom: 2rem;
         }
-    }
-    .popular__card{
-        img{
-            width: 30%;
+        .popular__card{
+            width: 75vw;
+            min-width: 0;
+        }
+        .participants{
+            float: right;
+            margin-right: 1em;
+        }
+        .button__wrapper{
+            margin: 4em auto;
+            display: flex;
+            transform: translate(0%, 0%);
+            justify-content: center;
+            flex-direction: row-reverse;
+
+            .button__secondary--on-mobile{
+                margin: 0;
+                background-color: $button-primary;
+                color: white; 
+                margin: 0 0.75rem 0 0;
+            }
         }
     }
 }

@@ -93,13 +93,13 @@ header .mobile__burger-menu {
     display: none;
   }
   header h1 {
-    font-size: 1.75em;
+    font-size: 2em;
     width: 100%;
     align-self: flex-end;
   }
 }
 nav {
-  padding-bottom: 1em;
+  padding: 1em 0;
   box-sizing: border-box;
   width: 100vw;
 }
@@ -108,7 +108,7 @@ nav ul {
   justify-content: center;
 }
 nav li {
-  margin: 0 3rem;
+  margin: 0 4rem;
   display: inline;
   font-weight: bold;
   font-size: 1.25rem;
@@ -120,13 +120,13 @@ nav li:hover {
 }
 
 @media only screen and (max-width: 768px) {
-  nav ul {
+  nav {
     display: none;
   }
 }
 @media only screen and (min-width: 768px) {
-  nav ul {
-    display: flex;
+  nav {
+    display: block;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -239,17 +239,36 @@ nav li:hover {
   float: right;
   width: 50%;
 }
-.popular button {
-  margin: 2em auto;
+.popular .button__secondary--on-mobile {
+  margin-bottom: 2em;
+  margin-top: 0;
 }
 
 @media only screen and (min-width: 768px) {
   .popular h2 {
-    font-size: 1.75rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
   }
-  .popular__card img {
-    width: 30%;
+  .popular .popular__card {
+    width: 75vw;
+    min-width: 0;
+  }
+  .popular .participants {
+    float: right;
+    margin-right: 1em;
+  }
+  .popular .button__wrapper {
+    margin: 4em auto;
+    display: flex;
+    transform: translate(0%, 0%);
+    justify-content: center;
+    flex-direction: row-reverse;
+  }
+  .popular .button__wrapper .button__secondary--on-mobile {
+    margin: 0;
+    background-color: #E3170A;
+    color: white;
+    margin: 0 0.75rem 0 0;
   }
 }
 .about-us {
