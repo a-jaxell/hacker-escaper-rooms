@@ -88,7 +88,7 @@ header .mobile__burger-menu {
   border: none;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 940px) {
   .mobile__burger-menu {
     display: none;
   }
@@ -119,19 +119,19 @@ nav li:hover {
   color: #8ACFE5;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 940px) {
   nav {
     display: none;
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 940px) {
   nav {
     display: block;
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
   #landing__container {
-    height: 30rem;
+    max-height: 30rem;
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -139,10 +139,10 @@ nav li:hover {
     justify-content: center;
   }
   .button__wrapper {
-    transform: translateY(-50%);
     display: flex;
     justify-content: center;
     flex-direction: row-reverse;
+    transform: translateY(-50%);
   }
   .button__wrapper .button__primary--on-white {
     background-color: #E3170A;
@@ -191,9 +191,18 @@ nav li:hover {
   display: none;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 800px) {
   .review__card2 {
+    display: none;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .review__container {
+    width: auto;
+  }
+  .review__card2, .review__card, .review__container .review__card2 {
     display: flex;
+    width: 50%;
   }
 }
 .popular h2 {
@@ -233,18 +242,20 @@ nav li:hover {
 .popular .popular__card .popular__card__room-description {
   margin: 1rem;
   font-size: 0.95rem;
+  width: 90%;
 }
 .popular .popular__card button {
   margin: 1rem;
   float: right;
-  width: 50%;
+  width: 55%;
+  height: 2.5;
 }
 .popular .button__secondary--on-mobile {
   margin-bottom: 2em;
   margin-top: 0;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 900px) {
   .popular h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -257,10 +268,11 @@ nav li:hover {
     float: right;
     margin-right: 1em;
   }
+}
+@media only screen and (min-width: 769px) {
   .popular .button__wrapper {
-    margin: 4em auto;
+    margin: 4em auto 4em auto;
     display: flex;
-    transform: translate(0%, 0%);
     justify-content: center;
     flex-direction: row-reverse;
   }
@@ -272,10 +284,11 @@ nav li:hover {
   }
 }
 .about-us {
-  padding: 4rem 0rem 2rem 0rem;
+  padding: 4rem 2rem 2rem 2rem;
   font-size: 1.5rem;
   font-weight: 400;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 .about-us button {
   display: block;
@@ -283,7 +296,21 @@ nav li:hover {
   font-weight: bold;
   font-size: 1.1rem;
 }
+.about-us p {
+  text-align: center;
+  margin: 1rem auto;
+}
 
+@media only screen and (min-width: 900px) {
+  .about-us {
+    padding-bottom: 4em;
+    padding-top: 4em;
+  }
+  .about-us p {
+    width: 50%;
+    font-size: 1.2em;
+  }
+}
 .browse-challenges, .book-on-site {
   margin-bottom: 1rem;
 }
@@ -320,7 +347,7 @@ footer a {
   color: white;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 807px) {
   .book-on-site {
     display: flex;
     margin-bottom: 0;
@@ -337,6 +364,8 @@ footer a {
     width: 50%;
     height: 100%;
   }
+}
+@media only screen and (min-width: 768px) {
   footer {
     display: flex;
     justify-content: space-evenly;
