@@ -1,6 +1,9 @@
 //Import of Roboto font, regular, italic and bold
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
 
+//Color Variables
+$button-primary: #E3170A;
+$button-secondary: #8ACFE5;
 
 //Placeholders for buttons
 %button{
@@ -15,7 +18,7 @@
 }
 %primary-on-white{
     @extend %button;
-    background: #E3170A;
+    background: $button-primary;
     color: white;
 }
 %secondary-on-white{
@@ -57,7 +60,6 @@
 *{
     margin: 0;
 }
-// 
 body{
     font-family: 'Roboto', sans-serif;
 }
@@ -125,17 +127,16 @@ header{
 }
 nav{
     @extend %section-dark;
-    grid-column: 1 / span 12;
-    grid-row: 2;
     padding-bottom: 1em;
     box-sizing: border-box;
+    width: 100vw;
     ul{
         display: flex;
         justify-content: center;
     }
     li{
         margin: 0 3rem;
-        display: inline-block;
+        display: inline;
         font-weight: bold;
         font-size: 1.25rem;
         list-style: none; 
@@ -161,42 +162,54 @@ nav{
       }
 }
 
-#landing__container{
-    display: flex;
-    flex-direction: column;
-
-    .button__primary--on-white{
-        margin: 0 auto;
-        background-color: transparent;
-        text-decoration: underline;
-        color: #36769D;
-        font-size: 0.75em;
-    }
-}
 // Adjusts landing image fill on larger screens 
 @media only screen and (min-width: 768px) {
 
-    .landing__image__container{
-        max-height: 55%;
+    #landing__container{
+        max-height: 80%;
         min-width: 100%;
         overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 0;
+    }
+        .button__wrapper{
+           transform: translateY(-300%);
+           display: flex;
+           justify-content: center;
+           flex-direction: row-reverse;
+
+        .button__primary--on-white{
+            background-color: $button-primary;
+            color:white;
+            text-decoration: none;
+            font-size: 1rem;
+            margin: 0 0.75rem 0 0;
+        }
+        .button__secondary--on-white{
+            margin: 0;
+        }
     }
 }
 
-@media only screen and (min-width: 768px){
+.button__primary--on-white{
+    margin: 0 auto;
+    background-color: transparent;
+    text-decoration: underline;
+    color: #36769D;
+    font-size: 0.75em;
 }
 .review__container{
     padding-top: 1rem;
     display: flex;
+    justify-content: center;
 
     .review__card, .review__card2{
         display: flex;
-        max-width: 50%;
+        justify-content: flex-end;
         padding: 0 1rem;
-
+        
         img{
             max-width: 15%;
             padding-right: 1em;
@@ -211,17 +224,23 @@ nav{
             }
         }
     }
-}
-@media only screen and (max-width: 768px){
     .review__card2{
         display: none;
     }
 }
-.popular{
+@media only screen and (min-width: 768px){
+    .review__card{
+        display: flex;
+    }
+    .review__container{
+        grid-row-start: 5;
+   }
+}
+ .popular{
     h2{
-        font-weight: 400;
-        margin: 4rem auto 0 auto;
-        text-align: center;
+    font-weight: 400;
+    margin: 4rem auto 0 auto;
+    text-align: center;
 
     }
     .popular__card__container{
@@ -306,37 +325,7 @@ footer{
 }
 
 @media only screen and (min-width: 768px) {
-    body{
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-auto-rows: min-content;
-    }
-    header, .landing__container, .review__container, .popular, .about-us, footer{
-        grid-column-start: 1 / span 12;
-        grid-row:auto;
-        max-width: 100vw;
-    }
-    header{
-        grid-row-start: 1;
-    }
-    #landing__container{
-        grid-row-start: 3;
-        button{
-            display:inline-block;
-        };
-    }
-    .review__container{
-        grid-row-start: 4;
-    }
-    .popular{
-        grid-row-start: 5;
-    }
-    .about-us{
-        grid-row-start:6;
-    }
     .book-on-site{
-        grid-column-start: 1 / span 12;
-        grid-row-start: 7;
         display: flex;
         img{
             width: 50%;
@@ -345,8 +334,6 @@ footer{
         margin-bottom: 0;
     }
     .browse-challenges{
-        grid-column-start: 1 / span 12;
-        grid-row-start: 8;
         display: flex;
         flex-direction: row-reverse;
         img{
@@ -355,7 +342,6 @@ footer{
         }
     }
     footer{
-        grid-row-start: 9;
         display: flex;
         justify-content: space-evenly;
         .about-us--small{
@@ -365,10 +351,7 @@ footer{
                 width: 80%
             }
         }
-        .site-map{
-            width: 25%
-        }
-        .social-media{
+        .site-map, .social-media{
             width: 25%
         }
     }
