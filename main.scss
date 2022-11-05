@@ -1,27 +1,43 @@
 //Import of Roboto font, regular, italic and bold
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
 
-@mixin primary-on-white{
+
+//Placeholders for buttons
+%button{
+    width: 15rem;
+    height: 3rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 2em auto 0 auto;
+    display: block;
+}
+%primary-on-white{
+    @extend %button;
     background: #E3170A;
     color: white;
 }
-@mixin secondary-on-white{
+%secondary-on-white{
+    @extend %button;
     background: #8ACFE5;
     color: black;
 }
-@mixin primary-on-dark{
+%primary-on-dark{
+    @extend %button;
     background: transparent;
     border:1px solid #8ACFE5;
     color: #8ACFE5;
 }
-@mixin section-dark{
-    background: #011827;
-    color:white;
-}
-@mixin secondary-on-mobile{
+%secondary-on-mobile{
+    @extend %button;
     color: #36769D;
     text-decoration: underline;
     background-color: transparent;
+}
+%section-dark{
+    background: #011827;
+    color:white;
 }
 @mixin book-and-browse-box{
     div{
@@ -37,31 +53,32 @@
         }
     }
 }
+//Wipes default margins in browser
 *{
     margin: 0;
 }
-
-button{
-    width: 15rem;
-    height: 3rem;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: bold;
+// 
+body{
+    font-family: 'Roboto', sans-serif;
 }
 .button__primary--on-white{
-    @include primary-on-white;
+    @extend %primary-on-white;
 }
 .button__secondary--on-white{
-    @include secondary-on-white;
+    @extend %secondary-on-white;
     display: block;
 }
 .button__secondary--on-mobile{
-    @include secondary-on-mobile;
+    @extend %secondary-on-mobile;
     display: block;
 }
+@media only screen and (min-width: 768px){
+    .button__secondary--on-mobile{
+        text-decoration: none;
+    }
+}
 .button__primary--on-dark{
-    @include primary-on-dark;
+    @extend %primary-on-dark;
 }
 
 body{
@@ -73,11 +90,12 @@ body{
 }
 
 header{
-    @include section-dark;
+    @extend %section-dark;
     width: 100vw;
     display: flex;
     box-sizing: border-box;
     padding: 1.5rem;
+    padding-right: 0;
     img{
         height: 4.5rem;
         width: 6.5rem;
@@ -85,23 +103,68 @@ header{
     h1{
         padding-left: 0.5rem;
         display: inline-block;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         width: 25%;
     }
-    nav{
-        display: none;
-    }
     .mobile__burger-menu{
-        font-family: 'FontAwesome';
-        content: "\f005";
+        @extend %section-dark;
+        font-size: 2.5em;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 2em;
+        width: 1.75em;
+        border: none;
     }
 }
+//Removes burger menu from view on larger screens
+@media only screen and (min-width:768px){
+    .mobile__burger-menu{
+        display: none;
+    }
+}
+nav{
+    @extend %section-dark;
+    grid-column: 1 / span 12;
+    grid-row: 2;
+    padding-bottom: 1em;
+    box-sizing: border-box;
+    ul{
+        display: flex;
+        justify-content: center;
+    }
+    li{
+        margin: 0 3rem;
+        display: inline-block;
+        font-weight: bold;
+        font-size: 1.25rem;
+        list-style: none; 
+        color:white;
+    }
+    li:hover{
+        color:#8ACFE5;
+    }
+}
+// Toggles nav bar depending on screen size
+@media only screen and (max-width: 768px) {
+  nav{
+    ul{
+        display: none;
+    }
+  }
+}
+@media only screen and (min-width: 768px) {
+    nav{
+        ul{
+            display: flex;
+        }
+      }
+}
+
 #landing__container{
     display: flex;
     flex-direction: column;
-    button{
-        margin: 2em auto 0 auto;
-    }
+
     .button__primary--on-white{
         margin: 0 auto;
         background-color: transparent;
@@ -110,11 +173,28 @@ header{
         font-size: 0.75em;
     }
 }
+// Adjusts landing image fill on larger screens 
+@media only screen and (min-width: 768px) {
+
+    .landing__image__container{
+        max-height: 55%;
+        min-width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 768px){
+}
 .review__container{
     padding-top: 1rem;
+    display: flex;
 
-    .review__card{
+    .review__card, .review__card2{
         display: flex;
+        max-width: 50%;
         padding: 0 1rem;
 
         img{
@@ -122,7 +202,8 @@ header{
             padding-right: 1em;
             align-self: flex-start;
         }
-        p{
+        blockquote{
+            max-width: 65%;
             padding-right: 2em;
             font-size: 1.2rem;
             span{
@@ -131,7 +212,11 @@ header{
         }
     }
 }
-
+@media only screen and (max-width: 768px){
+    .review__card2{
+        display: none;
+    }
+}
 .popular{
     h2{
         font-weight: 400;
@@ -182,7 +267,7 @@ header{
     }
 }
 .about-us{
-    @include section-dark;
+    @extend %section-dark;
     padding: 4rem 0rem 2rem 0rem;
     font-size: 1.5rem;
     font-weight: 400;
@@ -203,7 +288,7 @@ header{
 }
 footer{
     padding: 2rem 0 2.5rem 0;
-    @include section-dark;
+    @extend %section-dark;
     h4{
         margin: 1rem 0 0.5rem 1em;
     }
@@ -235,20 +320,23 @@ footer{
         grid-row-start: 1;
     }
     #landing__container{
-        grid-row-start: 2;
+        grid-row-start: 3;
+        button{
+            display:inline-block;
+        };
     }
     .review__container{
-        grid-row-start: 3;
-    }
-    .popular{
         grid-row-start: 4;
     }
+    .popular{
+        grid-row-start: 5;
+    }
     .about-us{
-        grid-row-start:5;
+        grid-row-start:6;
     }
     .book-on-site{
         grid-column-start: 1 / span 12;
-        grid-row-start: 6;
+        grid-row-start: 7;
         display: flex;
         img{
             width: 50%;
@@ -258,7 +346,7 @@ footer{
     }
     .browse-challenges{
         grid-column-start: 1 / span 12;
-        grid-row-start: 7;
+        grid-row-start: 8;
         display: flex;
         flex-direction: row-reverse;
         img{
@@ -267,7 +355,7 @@ footer{
         }
     }
     footer{
-        grid-row-start: 8;
+        grid-row-start: 9;
         display: flex;
         justify-content: space-evenly;
         .about-us--small{

@@ -1,15 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap");
-* {
-  margin: 0;
-}
-
-button {
+.button__secondary--on-mobile, .button__primary--on-dark, .button__secondary--on-white, .button__primary--on-white {
   width: 15rem;
   height: 3rem;
   border: none;
   border-radius: 4px;
   font-size: 1rem;
   font-weight: bold;
+  margin: 2em auto 0 auto;
+  display: block;
 }
 
 .button__primary--on-white {
@@ -20,14 +18,6 @@ button {
 .button__secondary--on-white {
   background: #8ACFE5;
   color: black;
-  display: block;
-}
-
-.button__secondary--on-mobile {
-  color: #36769D;
-  text-decoration: underline;
-  background-color: transparent;
-  display: block;
 }
 
 .button__primary--on-dark {
@@ -36,6 +26,38 @@ button {
   color: #8ACFE5;
 }
 
+.button__secondary--on-mobile {
+  color: #36769D;
+  text-decoration: underline;
+  background-color: transparent;
+}
+
+footer, .about-us, nav, header .mobile__burger-menu, header {
+  background: #011827;
+  color: white;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.button__secondary--on-white {
+  display: block;
+}
+
+.button__secondary--on-mobile {
+  display: block;
+}
+
+@media only screen and (min-width: 768px) {
+  .button__secondary--on-mobile {
+    text-decoration: none;
+  }
+}
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -45,12 +67,11 @@ body img {
 }
 
 header {
-  background: #011827;
-  color: white;
   width: 100vw;
   display: flex;
   box-sizing: border-box;
   padding: 1.5rem;
+  padding-right: 0;
 }
 header img {
   height: 4.5rem;
@@ -59,23 +80,59 @@ header img {
 header h1 {
   padding-left: 0.5rem;
   display: inline-block;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   width: 25%;
 }
-header nav {
-  display: none;
-}
 header .mobile__burger-menu {
-  font-family: "FontAwesome";
-  content: "\f005";
+  font-size: 2.5em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 2em;
+  width: 1.75em;
+  border: none;
 }
 
+@media only screen and (min-width: 768px) {
+  .mobile__burger-menu {
+    display: none;
+  }
+}
+nav {
+  grid-column: 1/span 12;
+  grid-row: 2;
+  padding-bottom: 1em;
+  box-sizing: border-box;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+}
+nav li {
+  margin: 0 3rem;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.25rem;
+  list-style: none;
+  color: white;
+}
+nav li:hover {
+  color: #8ACFE5;
+}
+
+@media only screen and (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+}
+@media only screen and (min-width: 768px) {
+  nav ul {
+    display: flex;
+  }
+}
 #landing__container {
   display: flex;
   flex-direction: column;
-}
-#landing__container button {
-  margin: 2em auto 0 auto;
 }
 #landing__container .button__primary--on-white {
   margin: 0 auto;
@@ -85,26 +142,44 @@ header .mobile__burger-menu {
   font-size: 0.75em;
 }
 
+@media only screen and (min-width: 768px) {
+  .landing__image__container {
+    max-height: 55%;
+    min-width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 .review__container {
   padding-top: 1rem;
-}
-.review__container .review__card {
   display: flex;
+}
+.review__container .review__card, .review__container .review__card2 {
+  display: flex;
+  max-width: 50%;
   padding: 0 1rem;
 }
-.review__container .review__card img {
+.review__container .review__card img, .review__container .review__card2 img {
   max-width: 15%;
   padding-right: 1em;
   align-self: flex-start;
 }
-.review__container .review__card p {
+.review__container .review__card blockquote, .review__container .review__card2 blockquote {
+  max-width: 65%;
   padding-right: 2em;
   font-size: 1.2rem;
 }
-.review__container .review__card p span {
+.review__container .review__card blockquote span, .review__container .review__card2 blockquote span {
   font-size: 0.85rem;
 }
 
+@media only screen and (max-width: 768px) {
+  .review__card2 {
+    display: none;
+  }
+}
 .popular h2 {
   font-weight: 400;
   margin: 4rem auto 0 auto;
@@ -153,8 +228,6 @@ header .mobile__burger-menu {
 }
 
 .about-us {
-  background: #011827;
-  color: white;
   padding: 4rem 0rem 2rem 0rem;
   font-size: 1.5rem;
   font-weight: 400;
@@ -187,8 +260,6 @@ header .mobile__burger-menu {
 
 footer {
   padding: 2rem 0 2.5rem 0;
-  background: #011827;
-  color: white;
 }
 footer h4 {
   margin: 1rem 0 0.5rem 1em;
@@ -220,20 +291,23 @@ footer a {
     grid-row-start: 1;
   }
   #landing__container {
-    grid-row-start: 2;
-  }
-  .review__container {
     grid-row-start: 3;
   }
-  .popular {
+  #landing__container button {
+    display: inline-block;
+  }
+  .review__container {
     grid-row-start: 4;
   }
-  .about-us {
+  .popular {
     grid-row-start: 5;
+  }
+  .about-us {
+    grid-row-start: 6;
   }
   .book-on-site {
     grid-column-start: 1/span 12;
-    grid-row-start: 6;
+    grid-row-start: 7;
     display: flex;
     margin-bottom: 0;
   }
@@ -243,7 +317,7 @@ footer a {
   }
   .browse-challenges {
     grid-column-start: 1/span 12;
-    grid-row-start: 7;
+    grid-row-start: 8;
     display: flex;
     flex-direction: row-reverse;
   }
@@ -252,7 +326,7 @@ footer a {
     height: 100%;
   }
   footer {
-    grid-row-start: 8;
+    grid-row-start: 9;
     display: flex;
     justify-content: space-evenly;
   }
