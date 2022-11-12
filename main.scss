@@ -113,9 +113,73 @@ header{
         border: none;
     }
 }
+// Mobile menu dropdown
+.displayMobileMenu{
+    @extend %section-dark;
+     height: 95vh;
+     width: 90vw;
+     box-sizing: border-box;
+     display: flex;
+     z-index: 3;
+     position: fixed;
+     top: 0;
+     margin: 2.5vh 5vw;
+     animation: 0.5s dropdown-toggle forwards;
+}
+ //popping up the Mobile menu
+
+ @keyframes dropdown-toggle {
+    0%{
+        transform: scale(0.95);
+    }
+    100%{
+        transform: scale(1);
+    }
+ }
+// Fading the rest of the document in the background
+.overlay{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    animation: 0.25s fader forwards;
+    background-color: rgba(255,255,255,0.5);
+    z-index: 2;
+}
+@keyframes fader {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.fader{
+    animation: 0.5s fader forwards;
+}
+
+ .mobile__burger-menu--close{
+    height: 20px;
+    width: 20px;
+    position: fixed;
+    top: 10px;
+    right: 40px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    z-index: 3;
+    font-size: 3.5em;
+ }
 //Removes burger menu from view on larger screens
 @media only screen and (min-width:940px){
     .mobile__burger-menu{
+        display: none;
+    }
+    .mobile__burger-menu--close{
         display: none;
     }
     header{
@@ -147,10 +211,22 @@ nav{
         color:#8ACFE5;
     }
 }
-// Toggles nav bar depending on screen size
+//Toggles nav bar depending on screen size
 @media only screen and (max-width: 940px) {
   nav{
         display: none;
+
+  }
+  .navmenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: auto;
+      li{
+          font-size: 2em;
+          margin: 1em auto;
+       }    
   }
 }
 @media only screen and (min-width: 940px) {

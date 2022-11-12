@@ -32,7 +32,7 @@
   background-color: transparent;
 }
 
-footer, .about-us, nav, header .mobile__burger-menu, header {
+footer, .about-us, nav, .displayMobileMenu, header .mobile__burger-menu, header {
   background: #011827;
   color: white;
 }
@@ -88,8 +88,70 @@ header .mobile__burger-menu {
   border: none;
 }
 
+.displayMobileMenu {
+  height: 95vh;
+  width: 90vw;
+  box-sizing: border-box;
+  display: flex;
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  margin: 2.5vh 5vw;
+  animation: 0.5s dropdown-toggle forwards;
+}
+
+@keyframes dropdown-toggle {
+  0% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  animation: 0.25s fader forwards;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 2;
+}
+
+@keyframes fader {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fader {
+  animation: 0.5s fader forwards;
+}
+
+.mobile__burger-menu--close {
+  height: 20px;
+  width: 20px;
+  position: fixed;
+  top: 10px;
+  right: 40px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  z-index: 3;
+  font-size: 3.5em;
+}
+
 @media only screen and (min-width: 940px) {
   .mobile__burger-menu {
+    display: none;
+  }
+  .mobile__burger-menu--close {
     display: none;
   }
   header h1 {
@@ -122,6 +184,17 @@ nav li:hover {
 @media only screen and (max-width: 940px) {
   nav {
     display: none;
+  }
+  .navmenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: auto;
+  }
+  .navmenu li {
+    font-size: 2em;
+    margin: 1em auto;
   }
 }
 @media only screen and (min-width: 940px) {
@@ -356,6 +429,9 @@ footer a {
     width: 50%;
     height: 100%;
   }
+  .book-on-site div {
+    margin: 2em;
+  }
   .browse-challenges {
     display: flex;
     flex-direction: row-reverse;
@@ -363,6 +439,9 @@ footer a {
   .browse-challenges img {
     width: 50%;
     height: 100%;
+  }
+  .browse-challenges div {
+    padding: 2em;
   }
 }
 @media only screen and (min-width: 768px) {
